@@ -4,6 +4,6 @@ feature 'message', type: :feature do
 
   scenario 'root_pathにアクセス' do
     visit root_path
-    expect(response).to render_template :index
+    expect(page).to have_content('Hello')
   end
 end
