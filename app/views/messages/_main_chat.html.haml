@@ -1,0 +1,44 @@
+.chat-main
+  .chat-main__group-info
+    .group-box
+      .group-box__left
+        .group-box__left__name
+          TECH::EXPERT68期
+        %ul.group-box__left__member-ist
+          Member:
+          %li.group-box__left__member-ist__member
+            snskOgata
+          %li.group-box__left__member-ist__member
+            maekawa
+          %li.group-box__left__member-ist__member
+            sato
+      = link_to '#', class: "group-box__edit-btn" do
+        Edit
+  .chat-main__message-list
+    .messages
+      .message
+        .message__top
+          .message__top__name
+            snskOgata
+          .message__top__date
+            2020/01/05(日) 14:00:00
+        .message__content
+          昼もがんばろう
+      .message
+        .message__top
+          .message__top__name
+            snskOgata
+          .message__top__date
+            2020/01/05(日) 14:00:00
+        .message__content
+          夜もがんばろう
+  .chat-main__message-form
+    .form-items
+      .form-items__left
+        .form-items__left__field
+          type a message
+        %label{class: "form-items__left__icon"}
+          = icon('fas', 'image')
+          %input{type: "file"}
+      .form-items__send-btn
+        Send
