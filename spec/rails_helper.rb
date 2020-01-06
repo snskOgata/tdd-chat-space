@@ -32,10 +32,13 @@ rescue ActiveRecord::PendingMigrationError => e
   puts e.to_s.strip
   exit 1
 end
+
+require 'support/helpers/session_helpers'
 RSpec.configure do |config|
   
-  # FactryBotのクラスメソッドを直接呼び出せるように
+  # 各種モジュールメソッドを直接呼び出せるように
   config.include FactoryBot::Syntax::Methods
+  config.include Features::SessionHelpers, type: :feature
 
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
