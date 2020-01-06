@@ -45,6 +45,7 @@ group :development, :test do
   gem 'bullet'
   gem 'rspec-rails'
   gem 'rails-controller-testing'
+  gem 'factory_bot_rails'
 end
 
 group :development do
