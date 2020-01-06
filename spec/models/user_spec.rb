@@ -13,19 +13,7 @@ describe User do
       user.valid?
       expect(user.errors[:name]).to include("を入力してください")
     end
-
-    it 'emailが空での登録' do
-      user = build(:user, email: "")
-      user.valid?
-      expect(user.errors[:email]).to include("を入力してください")
-    end
-
-    it '無効なemailでの登録' do
-      user = build(:user, email: "aaa")
-      user.valid?
-      expect(user.errors[:email]).to include("は不正な値です")
-    end
-
+    
     it 'nameが21文字での登録' do
       user = build(:user, name: "a"*21)
       user.valid?
