@@ -1,5 +1,5 @@
 .user-management-wrapper {
-  margin: 100px auto;
+  margin: 50px auto;
   padding: 50px;
   width: 800px;
   border: 1px solid #cccccc;
@@ -74,6 +74,19 @@
         background-color: red;
         color: white;
       }
+    }
+  }
+
+  #error_explanation {
+    font-size: 12px;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: lightpink;
+    border: 1px solid red;
+    
+    ul {
+      list-style: disc;
+      padding-left: 15px;
     }
   }
 }
