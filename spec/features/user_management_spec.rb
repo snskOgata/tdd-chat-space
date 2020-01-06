@@ -49,6 +49,7 @@ require 'rails_helper'
     fill_in "user_current_password", with: user.password
     click_button "Update"
     expect(page).to have_content("Nameは20文字以内で入力してください")
+    
     # 正しい名前、正しいパスワードで登録
     visit edit_user_registration_path
     fill_in "user_name", with: "NewName"
