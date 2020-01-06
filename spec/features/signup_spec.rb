@@ -1,33 +1,22 @@
 require 'rails_helper'
  RSpec.feature "Sign Up", :devise do
 
-  scenario "visitor cannot sign up with invalid email address" do
-    sign_up_with("email", "password", "password")
+  scenario "種々の名前で登録" do
+    user = build(:user)
+    # 名前を空欄で登録
+    sign_up_with("", user.email, user.password, user.password_confirmation)
+    expect(page).to have_content("Nameを入力してください")
 
-    expect(page).to have_content("Eメールは不正な値です")
-  end
+    # 名前を"   "で登録
+    sign_up_with("   ", user.email, user.password, user.password_confirmation)
+    expect(page).to have_content("Nameを入力してください")
 
-  scenario "visitor cannot sign up without password" do
-    sign_up_with("test@example.com", "", "")
+    # 名前を21字で登録
+    sign_up_with("a"*21, user.email, user.password, user.password_confirmation)
+    expect(page).to have_content("Nameは20文字以内で入力してください")
 
-    expect(page).to have_content("パスワードを入力してください")
-  end
-
-  scenario "visitor cannot sign up with a short password" do
-    sign_up_with("test@example.com", "1234", "1234")
-
-    expect(page).to have_content("パスワードは6文字以上で入力してください")
-  end
-
-  scenario "visitor cannot sign up without password confirmation" do
-    sign_up_with("test@example.com", "password", "")
-
-    expect(page).to have_content("パスワードの入力が一致しません")
-  end
-
-  scenario "visitor cannot sign up with mismatched password and confirmation" do
-    sign_up_with("test@example.com", "password", "mismatch")
-
-    expect(page).to have_content("パスワードの入力が一致しません")
+    #　正しい名前で登録
+    sign_up_with(user.name, user.email, user.password, user.password_confirmation)
+    expect(page).to have_content(user.name)
   end
 end

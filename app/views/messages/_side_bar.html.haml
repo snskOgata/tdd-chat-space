@@ -2,7 +2,7 @@
   .side-bar__user-name
     .name
       .name__left
-        snskOgata
+        = current_user.name
       .name__right
         = link_to "#" , class: "name__right__icon" do
           %i.fa.fa-edit.fa-lg
