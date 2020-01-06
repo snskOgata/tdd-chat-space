@@ -24,7 +24,7 @@ require 'rails_helper'
     expect(page).to have_content(user.name)
     # ユーザエディットのリンクをクリック
     click_link 'edit-user'
-    expect(page).to have_content("Edit User")
+    expect(page).to have_content("Edit Account")
     expect(find('#user_name').value).to eq(user.name)
     
     # passwordが空白のまま更新
@@ -49,7 +49,7 @@ require 'rails_helper'
     fill_in "user_current_password", with: user.password
     click_button "Update"
     expect(page).to have_content("Nameは20文字以内で入力してください")
-    
+
     # 正しい名前、正しいパスワードで登録
     visit edit_user_registration_path
     fill_in "user_name", with: "NewName"

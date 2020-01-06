@@ -8,7 +8,7 @@ module Features
       fill_in "user_email", with: email
       fill_in "user_password", with: password
       fill_in "user_password_confirmation", with: confirmation
-      click_button "Sign up"
+      click_button "Create Account"
     end
 
     def sign_in(email, password)
