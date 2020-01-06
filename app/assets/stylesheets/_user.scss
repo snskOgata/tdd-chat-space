@@ -20,7 +20,6 @@
     .left-container__lower {
       width: 350px;
       .left-container__lower__link {
-        text-decoration: none;
         padding: 20px;
         color: white;
         background-color: lightgrey;
@@ -49,6 +48,7 @@
     .actions input{
       background-color: lightskyblue;
       color: white;
+      border: 0;
       cursor: pointer;
       padding: 15px;
       &:active {
