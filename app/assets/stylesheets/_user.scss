@@ -1,5 +1,5 @@
 .user-management-wrapper {
-  margin: 100px auto;
+  margin: 50px auto;
   padding: 50px;
   width: 800px;
   border: 1px solid #cccccc;
@@ -20,10 +20,12 @@
     .left-container__lower {
       width: 350px;
       .left-container__lower__link {
-        text-decoration: none;
         padding: 20px;
         color: white;
         background-color: lightgrey;
+        &:active {
+          background-color: grey;
+        }
         
       }
     }
@@ -43,6 +45,19 @@
         width: 350px;
       }
     }
+    .actions input{
+      background-color: lightskyblue;
+      color: white;
+      border: 0;
+      cursor: pointer;
+      padding: 15px;
+      &:active {
+        background-color: lightslategray;
+      }
+      &:focus {
+        outline: 0;
+      }
+    }
   }
   .delete-field {
     display: flex;
@@ -55,6 +70,23 @@
       border: 1px solid red;
       line-height: 30px;
       text-align: center;
+      &:active {
+        background-color: red;
+        color: white;
+      }
+    }
+  }
+
+  #error_explanation {
+    font-size: 12px;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: lightpink;
+    border: 1px solid red;
+    
+    ul {
+      list-style: disc;
+      padding-left: 15px;
     }
   }
 }
