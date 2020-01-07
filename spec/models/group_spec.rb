@@ -25,5 +25,11 @@ describe Group do
       group = build(:group, name: "a"*30)
       expect(group).to be_valid
     end
+
+    it 'グループにメンバーが一人もいない場合' do
+      group = build(:group, users: [])
+      group.valid?
+      expect(group.errors[:users]).to include("は1人以上必要です")
+    end
   end
 end
