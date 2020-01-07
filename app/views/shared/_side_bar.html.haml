@@ -1,0 +1,19 @@
+.side-bar
+  .side-bar__user-name
+    .name
+      .name__left
+        = current_user.name
+      .name__right
+        = link_to new_group_path , class: "name__right__icon" do
+          %i.fa.fa-edit.fa-lg
+        = link_to edit_user_registration_path , id: "edit-user", class: "name__right__icon" do
+          %i.fa.fa-cog.fa-lg
+  .side-bar__group__list
+    .groups
+      - current_user.groups.each do |group|
+        .group
+          = link_to "#", class: "group__link" do
+            .group__link__name
+              = group.name
+            .group__link__message
+              メッセージは未投稿です

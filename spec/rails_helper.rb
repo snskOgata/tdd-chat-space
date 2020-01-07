@@ -36,6 +36,12 @@ end
 require 'support/helpers/session_helpers'
 RSpec.configure do |config|
   
+  # deviseのログイン機能を使用可能に
+  Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
+  config.include Devise::Test::ControllerHelpers, type: :controller
+  config.include Devise::Test::ControllerHelpers, type: :view
+  config.include ControllerMacros, type: :controller
+
   # 各種モジュールメソッドを直接呼び出せるように
   config.include FactoryBot::Syntax::Methods
   config.include Features::SessionHelpers, type: :feature

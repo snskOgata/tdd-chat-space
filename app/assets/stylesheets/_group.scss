@@ -1,0 +1,62 @@
+.group-form-box {
+  border: 1px solid grey;
+  width: 1000px;
+  margin: 60px auto;
+  padding: 40px;
+
+  h1 {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .form {
+    .form__errors {
+
+    }
+    .form-field {
+      display: flex;
+      height: 60px;
+      padding-bottom: 40px;
+      margin-bottom: 30px;
+
+      &__label {
+        width: 280px;
+        line-height: 60px;
+        font-weight: bold;
+        text-align: right;
+        padding-right: 20px;
+      }
+      &__group-input {
+        #group_name {
+          padding-left: 10px;
+          line-height: 60px;
+          width: 600px;
+        }
+      }
+      &__member-list {
+        width: 600px;
+        font-size: 14px;
+        line-height: 60px;
+      }
+      &__empty {
+        width: 280px;
+      }
+      &__action {
+        input {
+          border: 0;
+          background-color: skyblue;
+          color: white;
+          padding: 20px;
+          &:active {
+            background-color: lightslategray;
+          }
+          &:focus {
+            outline: 0;
+          }
+        }
+      }
+    }
+  }
+}
