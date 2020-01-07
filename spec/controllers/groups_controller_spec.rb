@@ -85,4 +85,24 @@ describe GroupsController do
       end
     end
   end
+
+  describe '#update' do
+    context 'ログイン状態' do
+      before do
+        login user
+      end
+      it "グループ情報をアップデート" do
+        patch :update, params: { id: group.id.to_i,  group:  {name: "new_name", user_ids: group.user_ids} }
+        expect(group.reload.name).to eq "new_name"
+      end
+    end
+
+    context '非ログイン状態' do
+      it "グループ情報はアップデートされない" do
+        old_name = group.name
+        patch :update, params: { id: group.id.to_i,  group:  {name: "new_name", user_ids: group.user_ids} }
+        expect(group.reload.name).to eq old_name
+      end
+    end
+  end
 end

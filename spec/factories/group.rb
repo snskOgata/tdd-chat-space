@@ -2,6 +2,6 @@ FactoryBot.define do
   
   factory :group do
     name {Faker::Team.name}
-    users {[build(:user)]}
+    users {[create(:user)]}
   end
 end
