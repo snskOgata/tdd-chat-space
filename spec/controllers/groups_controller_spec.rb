@@ -44,6 +44,28 @@ describe GroupsController do
     end
   end
 
+  describe '#create' do
+    let(:params) { { group: attributes_for(:group, user_ids: [user.id]) } }
+    context 'ログイン状態' do
+      before do
+        login user
+      end
+      it "データベースに新しいグループが登録" do
+        expect{
+          post :create, params: params
+        }.to change(Group, :count).by(1)
+      end
+    end
+
+    context '非ログイン状態' do
+      it "データベースに新しいグループが登録" do
+        expect{
+          post :create, params: params
+        }.to change(Group, :count).by(0)
+      end
+    end
+  end
+
   describe '#edit' do
 
     context 'ログイン状態' do
