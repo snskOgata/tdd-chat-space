@@ -26,8 +26,8 @@ describe User do
     end
 
     it '同名の名前での登録' do
-      user = create(:user)
-      another = build(:user)
+      user = create(:user, name: "SameName")
+      another = build(:user, name: "SameName")
       another.valid?
       expect(another.errors[:name]).to include("はすでに存在します")
     end
