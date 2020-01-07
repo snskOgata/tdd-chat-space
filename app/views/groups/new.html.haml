@@ -1,5 +1,11 @@
 .form
   = form_with model: @group do |f|
+    - if @group.errors.any?
+      .form__errors
+        %h2= "#{@group.errors.full_messages.count}件のエラーが発生しました。"
+        %ul
+          - @group.errors.full_messages.each do |message|
+            %li= message
     .field
       .fiels__label
         = f.label :name
