@@ -1,4 +1,8 @@
-describe 'GET #index' do
+
+require 'rails_helper'
+
+describe GroupsController do
+  describe 'GET #index' do
     it "グループに紐ついた変数" do
       user = create(:user)
       group = create(:group)
@@ -11,3 +15,4 @@ describe 'GET #index' do
       expect(response).to render_template :index
     end
   end
+end
