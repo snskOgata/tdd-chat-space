@@ -1,21 +1,25 @@
-.form
-  = form_with model: @group do |f|
-    - if @group.errors.any?
-      .form__errors
-        %h2= "#{@group.errors.full_messages.count}件のエラーが発生しました。"
-        %ul
-          - @group.errors.full_messages.each do |message|
-            %li= message
-    .field
-      .fiels__label
-        = f.label :name
-      .field_input
-        = f.text_field :name
-    .field
-      .field__label
-        = f.label :user_ids, "チャットメンバー"
-      .field__input
-        = f.collection_check_boxes :user_ids, User.all, :id, :name
-    .field
-      .field__action
-        = f.submit
+.group-form-box
+  %h1 新規チャットグループ
+  .form
+    = form_with model: @group do |f|
+      - if @group.errors.any?
+        .form__errors
+          %h2= "#{@group.errors.full_messages.count}件のエラーが発生しました。"
+          %ul
+            - @group.errors.full_messages.each do |message|
+              %li= message
+      .form-field
+        .form-field__label
+          = f.label :name
+        .form-field__group-input
+          = f.text_field :name, placeholder: "グループ名を入力してください"
+      .form-field
+        .form-field__label
+          = f.label :user_ids, "チャットメンバー"
+        .form-field__member-list
+          = f.collection_check_boxes :user_ids, User.all, :id, :name
+          %hr/
+      .form-field
+        .form-field__empty
+        .form-field__action
+          = f.submit
