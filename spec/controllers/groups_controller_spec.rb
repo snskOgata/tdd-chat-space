@@ -43,4 +43,24 @@ describe GroupsController do
       end
     end
   end
+
+  describe '#edit' do
+
+    context 'ログイン状態' do
+      before do
+        login user
+      end
+      it 'newにアクセス' do
+        get :edit, params: {id: group.id}
+        expect(response).to render_template :edit
+      end
+    end
+
+    context '非ログイン状態' do
+      it 'indexにアクセス→ログイン画面へ' do
+        get :edit, params: {id: group.id}
+        expect(response).to redirect_to(new_user_session_path)
+      end
+    end
+  end
 end
