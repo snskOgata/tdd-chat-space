@@ -36,6 +36,8 @@ end
 require 'support/helpers/session_helpers'
 RSpec.configure do |config|
   
+  config.include Devise::Test::ControllerHelpers, type: :controller
+  config.include Devise::Test::ControllerHelpers, type: :view
   # 各種モジュールメソッドを直接呼び出せるように
   config.include FactoryBot::Syntax::Methods
   config.include Features::SessionHelpers, type: :feature
