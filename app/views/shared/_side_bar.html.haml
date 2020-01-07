@@ -10,15 +10,10 @@
           %i.fa.fa-cog.fa-lg
   .side-bar__group__list
     .groups
-      .group
-        =link_to "#", class: "group__link" do
-          .group__link__name
-            TECH::EXPERT68期
-          .group__link__message
-            メッセージは未投稿です
-      .group
-        =link_to "#", class: "group__link" do
-          .group__link__name
-            TECH::EXPERT68期
-          .group__link__message
-            メッセージは未投稿です
+      - current_user.groups.each do |group|
+        .group
+          = link_to "#", class: "group__link" do
+            .group__link__name
+              = group.name
+            .group__link__message
+              メッセージは未投稿です
