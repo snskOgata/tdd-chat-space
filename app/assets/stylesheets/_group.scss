@@ -12,8 +12,26 @@
   }
 
   .form {
-    .form__errors {
-
+    .form-errors {
+      display: flex;
+      margin-bottom: 20px;
+      &__empty {
+        width: 280px;
+      }
+      &__messages {
+        width: 600px;
+        padding: 20px;
+        border: 1px solid lightgrey;
+        h2 {
+          color: red;
+          padding-bottom: 10px;
+        }
+        ul {
+          list-style: disc;
+          padding-left: 10px;
+          font-size: 14px;
+        }
+      }
     }
     .form-field {
       display: flex;
