@@ -11,14 +11,14 @@ describe MessagesController do
         login user
       end
       it 'indexにアクセス' do
-        get :index
+        get :index, params: {group_id: group.id}
         expect(response).to render_template :index
       end
     end
 
     context '非ログイン状態' do
       it 'indexにアクセス→ログイン画面へ' do
-        get :index
+        get :index, params: {group_id: group.id}
         expect(response).to redirect_to(new_user_session_path)
       end
     end
