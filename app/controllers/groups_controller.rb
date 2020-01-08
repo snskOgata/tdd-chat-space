@@ -24,8 +24,9 @@ class GroupsController < ApplicationController
   def update
     @group = Group.find(params[:id])
     if @group.update(group_params)
-      redirect_to root_path
+      redirect_to root_path, notice: 'グループを修正しました'
     else
+      flash.now[:alert] = "グループ作成に失敗しました"
       render :edit
     end
   end
