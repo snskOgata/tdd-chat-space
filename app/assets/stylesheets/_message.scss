@@ -156,15 +156,14 @@ $btn_color: #38aef0;
       
       &__left{
         width: calc(100vw - 300px - 40px - 15px - 95px - 40px);
-        background-color: white;
         position: relative;
         margin-right: 15px;
         &__field {
-          color: #999999;
-          width: calc(100% - 50px);
+          width: calc(100%);
           font-size: 14px;
           line-height: 50px;
           padding-left: 10px;
+          border: 0;
         }
         &__icon {
           font-size: 20px;
